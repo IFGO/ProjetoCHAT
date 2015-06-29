@@ -1,0 +1,36 @@
+body{
+	background-image: url("images/fundo.jpg");
+}
+#container1{
+
+}
+#BlocoMensagens{
+  width: 830px;
+  float: left;
+  height: 500px;
+}
+#BlocoUsuarios{
+  width: 290px;
+  float: right;
+  height: 500px;
+}
+#conteudo{
+  background-color: white;
+  height: 380px;
+}
+#texto{
+  margin-top: 10px;
+  float: left;
+  width: 600px;
+}
+#texto input{
+	width: 600px;
+}
+#enviar{
+  float: right;
+  margin-top: 10px;
+  width: 105px;
+}
+#enviar input{
+	width: 105px;
+}
