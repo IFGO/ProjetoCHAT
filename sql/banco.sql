@@ -5,6 +5,7 @@
 CREATE TABLE `Bate Papo` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `nome` varchar(16) NOT NULL,
+   --´senha´ int(10) NOT NULL,
   `e-mail` varchar(32) NOT NULL,
   `texto` varchar(255) NOT NULL,
   `data` timestamp NOT NULL default CURRENT_TIMESTAMP,
@@ -21,6 +22,7 @@ CREATE TABLE `Bate Papo` (
 CREATE TABLE `usuarios` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(16) NOT NULL,
+  ´senha´ int(10) NOT NULL,
   `e-mail` varchar(32) NOT NULL,
   `usuarios` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
