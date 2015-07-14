@@ -1,5 +1,5 @@
 body{
-	background-image: url("images/fundo.jpg");
+  background-image: url("images/fundo.jpg");
 }
 #container1{
 
@@ -24,7 +24,7 @@ body{
   width: 600px;
 }
 #texto input{
-	width: 600px;
+  width: 600px;
 }
 #enviar{
   float: right;
@@ -32,5 +32,23 @@ body{
   width: 105px;
 }
 #enviar input{
-	width: 105px;
+  width: 105px;
+}
+#online{
+  width: 17%;
+  position: relative;
+  float: left;
+}
+#offline{
+  width: 17%;
+  position: relative;
+  float: left;  
+}
+ul{
+  position: relative;
+  right: 65px;
+}
+li{
+  list-style-type: none;
+  width: 160px;
 }
