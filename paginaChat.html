@@ -16,7 +16,7 @@
                          $(document).ready(function(){
                              
                                   $('#online').attr("src","images/on.png");
-                                  $('#offline').attr("src","images/off.png"); 
+                                  $('#offline').attr("src","images/off.png");
                                    
                           });
                 </script>
@@ -50,9 +50,9 @@
 			<div class="jumbotron" id="BlocoMensagens">
 				<div class="row">
 				<div class="col-sm-20 col-md-18">
-                                    <form action="envioMsg.php" method="POST">
+                                    <form name="" onSubmit="return false">
 					<div id="conteudo"></div>
-					<div id="texto"><input type="text" class="form-control" id="mensagem"></div>
+					<div id="texto"><input type="text" class="form-control" name="texto" id="mensagem"></div>
 					<div id="enviar"><input type="submit" class="btn btn-primary" onclick="alterar_div()"></div>
                                     </form>
 				</div>

@@ -4,18 +4,13 @@
 function alterar_div() {
   $.ajax({
     type: "POST",
-    url: "processa.php",
+    url: "chat/processa.php",
     data: {
       texto: $('#mensagem').val()
     },
     success: function(data) {
-      $('#conteudo').append(data);
-	  $("#mensagem").val('');
-	  $(function() {
-  var wtf    = $('#conteudo');
-  var height = wtf[0].scrollHeight;
-  wtf.scrollTop(height);
-});
+        $('#mensagem').val('');
+        $('#conteudo').append(data);
     }
   });
 }
