@@ -1,6 +1,3 @@
-
-
-
 function alterar_div() {
   $.ajax({
     type: "POST",
@@ -29,12 +26,17 @@ function atualizar_conversa() {
   });
 }
 
-function selecionar_destinatario(param) {
+function selecionar_destinatario(param,parem) {
   $.ajax({
+      type: "POST",
+      url: "chat/changeconversa.php",
     data: {
+        dest: param,
+        destn: parem
     },
     success: function(data) {
-      $('#destin').val(param);
+        $('#conteudo').empty();
+        $('#conteudo').append(data);
     }
   });
 }

@@ -17,6 +17,7 @@ body{
 #conteudo{
   background-color: white;
   height: 380px;
+  overflow:auto;
 }
 #texto{
   margin-top: 10px;
@@ -51,4 +52,90 @@ ul{
 li{
   list-style-type: none;
   width: 160px;
+}
+
+.bubble 
+{
+width: 40%;
+position: relative;
+padding: 9px;
+background: #C2FFC2;
+-webkit-border-radius: 19px;
+-moz-border-radius: 19px;
+border-radius: 19px;
+border: #000000 solid 1px;
+color: black;
+font-size: large;
+margin-left: 380px;
+}
+
+
+.bubble:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 2px 0 2px 15px;
+border-color: transparent #37EFFF;
+display: block;
+width: 0;
+z-index: 1;
+right: -15px;
+top: 13px;
+}
+
+.bubble:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 2px 0 2px 15px;
+border-color: transparent #000000;
+display: block;
+width: 0;
+z-index: 0;
+right: -16px;
+top: 13px;
+}
+
+.bubbleb 
+{
+width: 40%;
+position: relative;
+padding: 9px;
+background: white;
+-webkit-border-radius: 19px;
+-moz-border-radius: 19px;
+border-radius: 19px;
+border: #000000 solid 1px;
+font-size: large;
+margin-right: 380px;
+}
+
+.bubbleb:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 2px 15px 2px 0;
+border-color: transparent #FB7771;
+display: block;
+width: 0;
+z-index: 1;
+left: -15px;
+top: 13px;
+}
+
+.bubbleb:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 2px 15px 2px 0;
+border-color: transparent #000000;
+display: block;
+width: 0;
+z-index: 0;
+left: -16px;
+top: 13px;
 }

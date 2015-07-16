@@ -1,36 +1,19 @@
 <?php
-error_reporting(0);
  include "../dbconnect/mysqlconecta.php";
  include "../dbconnect/mysqlexecuta.php";
-session_start();
-$validador = 1;
-$conjconv = $_SESSION['id_empresa'];
-$sql = "SELECT * FROM chat where visualizada_mensagem = '0' AND conjunto_conv = '$conjconv'";
-    $res = mysqlexecuta($id,$sql);
-	 while ($row = mysql_fetch_assoc($res)) {
-	 
-				if($row['data_hora_chat'] != "0000-00-00 00:00:00"){
-				$data_banco = date_create($row['data_hora_chat']);
-				$dataformatada = date_format($data_banco,'H:i:s d/m/Y');
-				}else{
-				$dataformatada = NULL;
-				}
-				$idcriador = $row['criador_mensagem'];
-				if($row['criador_mensagem'] != $_SESSION['id']){
-				$sqlling = "SELECT * FROM funcionarios where id = $idcriador;";
-				$resling = mysqlexecuta($id,$sqlling);
-				$rowling = mysql_fetch_array($resling);
-			$idmensagem = $row['id'];
-			$finalizar = mysql_query("UPDATE chat SET visualizada_mensagem = '$validador' WHERE id = '$idmensagem'");
-		echo "<div class='bubbleb' style='color: ".$rowling['cor_chat']."'>".$rowling['nome_funcionario']." disse: <span style='color:black'>".$row['mensagem']."</span><br><span style='font-size:80%'>".$dataformatada."</span></div><br>";
-		echo "<script>";
-    	 echo" $(function() {
-  var wtf    = $('#conteudo');
-  var height = wtf[0].scrollHeight;
-  wtf.scrollTop(height);
-});";
-echo "</script>";
-		}else{
-		};
-}
-?>
+    $idconversa = $_SESSION['conversa'];
+    $meuid = $_SESSION['id'];
+    $sqling = "SELECT * FROM mensagem WHERE conversa = '$idconversa' AND visualizado = 0 AND criador_mensagem != '$meuid'";
+    $resing = mysqlexecuta($id,$sqling);
+     while ($rowing = mysqli_fetch_assoc($resing)) {
+         $texto = $rowing['mensagem'];
+         $idcriador = $rowing['criador_mensagem'];
+         $idmensagem = $rowing['id'];
+         $sql="SELECT nome FROM usuarios WHERE id = '$idcriador'";
+         $res = mysqlexecuta($id,$sql);
+         $row = mysqli_fetch_array($res);
+             echo '<div class="bubble">'.$row['nome'].' disse: '.$texto.'</div><br><br>';
+             $comando = "UPDATE mensagem SET visualizado = 1 WHERE id = '$idmensagem'";
+             $query = mysqli_query($id,$comando);
+
+     }

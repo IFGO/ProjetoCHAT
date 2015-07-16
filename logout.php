@@ -1,4 +1,8 @@
 <?php
+$val = 0;
+$userid = $_SESSION['id'];
+$comando = "UPDATE usuarios SET status_usuario = '$val' WHERE id = '$userid'";
+$query = mysqli_query($id,$comando);
 session_destroy();
 header("Location:index.php");
 /* 

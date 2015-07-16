@@ -14,6 +14,8 @@ $row = mysqli_fetch_array($res);
 $_SESSION['id'] = $row['id'];
 $_SESSION['nome'] = $row['nome'];
 $_SESSION['sexo'] = $row['sexo_usuario'];
+$_SESSION['conversa'] = NULL;
+$_SESSION['destinatario'] = NULL;
 $userid = $row['id'];
 $val = 1;
 $comando = "UPDATE usuarios SET status_usuario = '$val' WHERE id = '$userid'";

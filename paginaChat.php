@@ -22,6 +22,7 @@
                                   $('#offline').attr("src","images/off.png");
                           });
                           
+                                                    
                           window.onbeforeunload = closingCode;
                             function closingCode(){
                                $.ajax({
@@ -33,7 +34,12 @@
                               });
                                return null;
                             }
+                            
+                            var tempo=setInterval(function () {atualizar_conversa()}, 3000);
+                            $("#conteudo").animate({scrollTop: $('#conteudo').prop("scrollHeight")}, 500);   // velocidade do scroll em milisegundos
+
                 </script>
+
 	</head>
 
 	<body>
@@ -77,16 +83,19 @@
 			<div class="jumbotron" id="BlocoUsuarios">
                             <ul>
                                 <?php
-                                
                                 $sql = "SELECT id,nome,status_usuario FROM usuarios";
                                 $res = mysqlexecuta($id,$sql);
                                 while ($row = mysqli_fetch_assoc($res)) {
                                     $id_dest = $row['id'];
                                     $nome = $row['nome'];
-                                    if($row['status_usuario'] == 1){$status="online"; }else{$status="offline";}
-                                    echo '<li>
-                                <img id="'.$status.'" src="images/off.png" /><p onclick="selecionar_destinatario("'.$id_dest.'")">'.$nome.'</p>
-                                </li>';
+                                    if($row['status_usuario'] == 1){
+                                        $status="online"; 
+                                    }else{
+                                        $status="offline";
+                                    }
+                                    echo '<li>';?>
+                                <img id="<?php echo $status; ?>" src="images/off.png" /><p onclick="selecionar_destinatario('<?php echo $id_dest.",".$nome; ?>');"><?php echo $nome; ?></p><?php
+                                echo '</li>';
                                 }
                                 ?>
                                 <a href="logout.php">Sair</a>
