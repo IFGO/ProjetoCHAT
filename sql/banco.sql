@@ -1,5 +1,5 @@
 --
--- detém (Interromper) as entradas de bate-papo individuais
+-- detÃ©m (Interromper) as entradas de bate-papo individuais
 --
 
 CREATE TABLE `Bate Papo` (
@@ -21,12 +21,12 @@ CREATE TABLE `Bate Papo` (
 
 CREATE TABLE `usuarios` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `name` varchar(16) NOT NULL,
+  `nome` varchar(16) NOT NULL,
   ´senha´ int(10) NOT NULL,
   `e-mail` varchar(32) NOT NULL,
   `usuarios` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `nome` (`nome`),
   KEY `usuarios` (`usuarios`)
 ) ;
 
