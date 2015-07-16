@@ -15,9 +15,9 @@ function alterar_div() {
 function atualizar_conversa() {
   $.ajax({
     type: "POST",
-    url: "conversa.php",
+    url: "chat/conversa.php",
     data: {
-      nome_usuario: $('#mensagem').val()
+      textodestin: $('#destin').val()
     },
     success: function(data) {
       $('#conteudo').append(data);
@@ -37,6 +37,7 @@ function selecionar_destinatario(param,parem) {
     success: function(data) {
         $('#conteudo').empty();
         $('#conteudo').append(data);
+        $('#destin').val(param);
     }
   });
 }

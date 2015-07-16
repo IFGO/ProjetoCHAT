@@ -4,6 +4,7 @@ include "../dbconnect/mysqlexecuta.php";
 $meuid = $_SESSION['id'];
 $destid = $_POST['dest'];
 @$destnome = $_POST['destn'];
+date_default_timezone_set('America/Sao_Paulo'); 
 
 if($meuid < $destid){
     $vetor = array($meuid, $destid);
@@ -22,11 +23,16 @@ if($row['id']){
     $resing = mysqlexecuta($id,$sqling);
      while ($rowing = mysqli_fetch_assoc($resing)) {
          $texto = $rowing['mensagem'];
+         $dateone = strtotime($rowing['data_envio']);
+         $data = date('H:i:s d/m/Y',$dateone);
+         $sqla = "SELECT nome FROM usuarios where id='$destid'";
+         $resa = mysqlexecuta($id,$sqla);
+         $rowa = mysqli_fetch_array($resa); 
          if($rowing['criador_mensagem'] == $meuid){
              $nome = $_SESSION['nome'];
-             echo '<div class="bubble">'.$nome.' disse: '.$texto.'</div><br><br>';
+             echo '<div class="bubble" style="color:blue;">'.$nome.' disse: '.$texto.'<br></div><br>';
          }else{
-             echo '<div class="bubbleb">'.$destnome.' disse: '.$texto.'</div><br><br>';
+             echo '<div class="bubbleb">'.$rowa['nome'].' disse: '.$texto.'</div><br><br>';
          }
      }
 }else{

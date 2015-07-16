@@ -1,21 +1,22 @@
 <?php
-//script de login e autenticação
 include "dbconnect/mysqlconecta.php";
 include "dbconnect/mysqlexecuta.php";
 
+$nome = $_POST['nome'];
+$senha = $_POST['senha'];
+$email = $_POST['email'];
+$usuario = $_POST['usuario'];
 
-$nome       = $_POST['Nome'];
-$sobrenome  = $_POST['Sobrenome'];
-$email      = $_POST['e-mail'];
-$user       = $_POST['usuario'];
-$senha      = $_POST['senha'];
-$erro       = 0;
+     $comando = "INSERT INTO usuarios(nome,senha_usuario,email,nome_usuario) VALUES('$nome','$senha', '$email', '$usuario');";
+     $query = mysqli_query($id,$comando);
+     
+         echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
+         echo"<script type='text/javascript'>";
+            echo "alert('Usuario Cadastrado com Sucesso!!!');";
+	    echo "window.open=history.go(-1);";
+         echo "</script>";
 
-$sql = "insert into cadastro values";
-$sql = "('$nome', '$sobrenome', '$email', '$user', '$senha' )";
 
-$resultado = mysql_query($sql);
-echo "Usuário cadastrado com sucesso!";
 
 
 

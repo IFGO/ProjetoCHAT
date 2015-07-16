@@ -21,8 +21,8 @@ and open the template in the editor.
                             <div id="formulario"> 
 					<form class="form-signin" method="POST" action="login.php" style="margin-top: 23%;">
                                                 <img id="logo" src="images/logo/logoChat.png" />						
-                                                <h3 class="form-signin-heading">Faça seu login:</h3>
-                                                <input class="form-control" placeholder="Usuário" required="" autofocus="" contenteditable="false" type="text" name="login">
+                                                <h3 class="form-signin-heading">FaÃ§a seu login:</h3>
+                                                <input class="form-control" placeholder="UsuÃ¡rio" required="" autofocus="" contenteditable="false" type="text" name="login">
 						<input class="form-control" placeholder="Password" required="" autofocus="" contenteditable="false" type="password" name="senha">
                                                 
                                                 <label><a href="cadastro.html">Cadastrar-me<a></label>

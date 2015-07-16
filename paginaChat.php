@@ -35,8 +35,7 @@
                                return null;
                             }
                             
-                            var tempo=setInterval(function () {atualizar_conversa()}, 3000);
-                            $("#conteudo").animate({scrollTop: $('#conteudo').prop("scrollHeight")}, 500);   // velocidade do scroll em milisegundos
+                            var tempo=setInterval(function () {atualizar_conversa()}, 1000);
 
                 </script>
 
@@ -62,6 +61,7 @@
 			<div id="navbarCollapse" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">CHAT</a></li>
+                                        <li class="active"><a href="#"><?php echo "Bem vindo ".$_SESSION['nome']; ?></a></li>
 				</ul>
 			</div>
 		</nav> 

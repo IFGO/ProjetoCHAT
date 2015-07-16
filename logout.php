@@ -1,4 +1,6 @@
 <?php
+ include "dbconnect/mysqlconecta.php";
+ include "dbconnect/mysqlexecuta.php";
 $val = 0;
 $userid = $_SESSION['id'];
 $comando = "UPDATE usuarios SET status_usuario = '$val' WHERE id = '$userid'";
