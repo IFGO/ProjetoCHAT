@@ -1,10 +1,10 @@
 <?php
 //ini_set('display_errors', 'On');
 //error_reporting(E_ALL);
-$dbname=""; 
-$usuario=""; 
+$dbname="dbchat"; 
+$usuario="root"; 
 $password="";
-$servidor = "";
+$servidor = "localhost";
 $id = new mysqli($servidor, $usuario, $password, $dbname); 
 if (mysqli_connect_errno()) trigger_error(mysqli_connect_error());
 $id->set_charset('utf8');

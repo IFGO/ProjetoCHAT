@@ -28,3 +28,13 @@ function atualizar_conversa() {
     }
   });
 }
+
+function selecionar_destinatario(param) {
+  $.ajax({
+    data: {
+    },
+    success: function(data) {
+      $('#destin').val(param);
+    }
+  });
+}

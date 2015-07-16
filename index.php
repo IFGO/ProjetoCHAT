@@ -6,12 +6,12 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>ProjetoCHAT</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             html { 
-  background: url("C:/Users/admin/Desktop/images.jpg") no-repeat center center fixed; 
+  background: url("") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -28,7 +28,7 @@ and open the template in the editor.
 				
 	
 				<div id="formulario"> 
-					<form  method="POST" style="margin-top: 23%;">
+					<form  method="POST" action="login.php" style="margin-top: 23%;">
 						<br>
 						<span style= "color: #0000A3;">Usuário: </span>
 						<br> 
@@ -38,7 +38,6 @@ and open the template in the editor.
 						<br>
 						<input type="password" name="senha">
 						<br><br>
-						<input type="hidden" name="nKYEyR" value="1">
 						<input type="submit" value="Entrar">
 						<br><br>
 					</form>

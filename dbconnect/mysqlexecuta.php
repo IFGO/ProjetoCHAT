@@ -21,5 +21,5 @@ Contactar o Administrador.";
    return $res; 
 
  }
-
+session_start();
 ?>

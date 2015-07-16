@@ -11,14 +11,28 @@
 		<script src="js/bootstrap.min.js"  type="text/javascript"></script>
                 <script src="js/chat.js"  type="text/javascript"></script>
 		<title>Página Chat</title>
-                
+                <?php
+                 include "dbconnect/mysqlconecta.php";
+                 include "dbconnect/mysqlexecuta.php";
+                ?>
                 <script>
                          $(document).ready(function(){
                              
                                   $('#online').attr("src","images/on.png");
                                   $('#offline').attr("src","images/off.png");
-                                   
                           });
+                          
+                          window.onbeforeunload = closingCode;
+                            function closingCode(){
+                               $.ajax({
+                                type: "POST",
+                                url: "offline.php",//setar status offline
+                                data: {
+                                  secval: '1' // passar valor para 'desligar o usuario'
+                                }
+                              });
+                               return null;
+                            }
                 </script>
 	</head>
 
@@ -53,6 +67,7 @@
                                     <form name="" onSubmit="return false">
 					<div id="conteudo"></div>
 					<div id="texto"><input type="text" class="form-control" name="texto" id="mensagem"></div>
+                                        <input type="hidden" name="dest" id="destin" value="">
 					<div id="enviar"><input type="submit" class="btn btn-primary" onclick="alterar_div()"></div>
                                     </form>
 				</div>
@@ -61,21 +76,20 @@
 			</div>
 			<div class="jumbotron" id="BlocoUsuarios">
                             <ul>
-                                <li>
-                                    <img id="online" /><p>Usuário Tal</p>
-                                </li>
-                                <li>
-                                    <img id="offline" /><p>Usuário Tal</p>
-                                </li>
-                                <li>
-                                    <img src="" /><p>Usuário Tal</p>
-                                </li>
-                                <li>
-                                    <img src="" /><p>Usuário Tal</p>
-                                </li>
-                                <li>
-                                    <img src="" /><p>Usuário Tal</p>
-                                </li>
+                                <?php
+                                
+                                $sql = "SELECT id,nome,status_usuario FROM usuarios";
+                                $res = mysqlexecuta($id,$sql);
+                                while ($row = mysqli_fetch_assoc($res)) {
+                                    $id_dest = $row['id'];
+                                    $nome = $row['nome'];
+                                    if($row['status_usuario'] == 1){$status="online"; }else{$status="offline";}
+                                    echo '<li>
+                                <img id="'.$status.'" src="images/off.png" /><p onclick="selecionar_destinatario("'.$id_dest.'")">'.$nome.'</p>
+                                </li>';
+                                }
+                                ?>
+                                <a href="logout.php">Sair</a>
                             </ul>
      
       			</div>
